@@ -1,0 +1,42 @@
+{
+    "name": "churakovmike/laravel-grid",
+    "type": "library",
+    "description": "Easy gridview for laravel",
+    "keywords": [
+        "laravel",
+        "Eloquent",
+        "grid",
+        "gridview",
+        "table"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Churakov Mike"
+        },
+        {
+            "name": "Churakova Elizaveta"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7 || ^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ChurakovMike\\EasyGrid\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ChurakovMike\\EasyGrid\\GridViewServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
