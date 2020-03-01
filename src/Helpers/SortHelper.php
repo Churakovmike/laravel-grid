@@ -57,6 +57,7 @@ class SortHelper
     public static function getSortColumn(Request $request)
     {
         $column = $request->get('sort');
+
         return str_replace('-', '', $column);
     }
 

@@ -7,11 +7,11 @@ use Illuminate\Support\ServiceProvider;
 
 class GridViewServiceProvider extends ServiceProvider
 {
-	/**
-	 * Service provider for grid.
-	 *
-	 * @return void
-	 */
+    /**
+     * Service provider for grid.
+     *
+     * @return void
+     */
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'churakovmike_easygrid');
