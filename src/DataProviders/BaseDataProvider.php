@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 /**
- * Class BaseDataProvider
+ * Class BaseDataProvider.
  * @package ChurakovMike\EasyGrid\DataProviders
  *
  * @property Builder $query
@@ -35,7 +35,7 @@ abstract class BaseDataProvider
     public function get(Request $request) {}
 
     /**
-     * Get rows count
+     * Get rows count.
      *
      * @return int
      */

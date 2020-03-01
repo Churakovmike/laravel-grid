@@ -44,10 +44,12 @@ abstract class BaseColumn
      * @param $row
      * @return string
      */
-    public function getValue($row): string {}
+    public function getValue($row): string
+    {
+    }
 
     /**
-     * Get title for grid head
+     * Get title for grid head.
      *
      * @return string
      */
@@ -57,7 +59,7 @@ abstract class BaseColumn
     }
 
     /**
-     * Get attribute
+     * Get attribute.
      *
      * @return string
      */

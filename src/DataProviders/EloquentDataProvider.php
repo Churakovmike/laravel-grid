@@ -13,7 +13,7 @@ use Illuminate\Support\Collection;
 class EloquentDataProvider extends BaseDataProvider
 {
     /**
-     * Get result
+     * Get result.
      *
      * @param Request $request
      * @return Collection

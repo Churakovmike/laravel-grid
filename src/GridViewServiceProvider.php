@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 class GridViewServiceProvider extends ServiceProvider
 {
 	/**
-	 * Service provider for grid
+	 * Service provider for grid.
 	 *
 	 * @return void
 	 */
@@ -22,8 +22,8 @@ class GridViewServiceProvider extends ServiceProvider
         });
 	}
 
-	public function register()
-	{
-	    //
-	}
+    public function register()
+    {
+        //
+    }
 }

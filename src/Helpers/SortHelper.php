@@ -6,8 +6,7 @@ use ChurakovMike\EasyGrid\Columns\BaseColumn;
 use Illuminate\Http\Request;
 
 /**
- * Class QueryHelper
- * @package ChurakovMike\EasyGrid\Helpers
+ * Class QueryHelper.
  */
 class SortHelper
 {
@@ -16,7 +15,7 @@ class SortHelper
         SORT_DESC = 'desc';
 
     /**
-     * Build sort link for model
+     * Build sort link for model.
      *
      * @param Request $request
      * @param BaseColumn $column
@@ -28,7 +27,7 @@ class SortHelper
 
         if (is_null($sortQuery)) {
             return $request->fullUrlWithQuery([
-                'sort' => $column->getAttribute()
+                'sort' => $column->getAttribute(),
             ]);
         }
 

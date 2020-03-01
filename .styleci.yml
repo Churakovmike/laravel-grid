@@ -2,6 +2,8 @@ preset: laravel
 
 disabled:
   - unused_use
+  - phpdoc_no_package
+  - phpdoc_var_without_name
 
 finder:
   exclude:

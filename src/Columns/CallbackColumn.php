@@ -3,13 +3,13 @@
 namespace ChurakovMike\EasyGrid\Columns;
 
 /**
- * Class CallbackColumn
+ * Class CallbackColumn.
  * @package ChurakovMike\EasyGrid\Columns
  */
 class CallbackColumn extends BaseColumn
 {
     /**
-     * Return user callback
+     * Return user callback.
      *
      * @param $row
      * @return string

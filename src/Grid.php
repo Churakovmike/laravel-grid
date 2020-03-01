@@ -7,12 +7,12 @@ use ChurakovMike\EasyGrid\Columns\DefaultColumn;
 use ChurakovMike\EasyGrid\DataProviders\BaseDataProvider;
 use ChurakovMike\EasyGrid\DataProviders\EloquentDataProvider;
 use ChurakovMike\EasyGrid\Traits\Configurable;
+use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Closure;
 
 /**
- * Class Grid
+ * Class Grid.
  * @package ChurakovMike\EasyGrid
  *
  * @property array $config
@@ -104,7 +104,7 @@ class Grid
     }
 
     /**
-     * TODO: сделать возможность передачи класса колонки
+     * TODO: сделать возможность передачи класса колонки.
      */
     protected function buildColumns()
     {

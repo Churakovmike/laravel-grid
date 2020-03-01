@@ -3,10 +3,9 @@
 namespace ChurakovMike\EasyGrid\Traits;
 
 /**
- * Use this trait to configurate your object
+ * Use this trait to configurate your object.
  *
  * Trait Configurable
- * @package ChurakovMike\EasyGrid\Traits
  */
 trait Configurable
 {
