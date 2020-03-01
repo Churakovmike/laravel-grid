@@ -27,8 +27,9 @@ class Grid
 {
     use Configurable;
 
-    const DEFAULT_ROW_PER_PAGE = 10;
-    const DEFAULT_PAGE_NUMBER = 1;
+    const
+        DEFAULT_ROW_PER_PAGE = 10,
+        DEFAULT_PAGE_NUMBER = 1;
 
     /**
      * @var array
