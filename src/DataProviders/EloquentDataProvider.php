@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 /**
- * Class EloquentDataProvider
+ * Class EloquentDataProvider.
  * @package ChurakovMike\EasyGrid\DataProviders
  */
 class EloquentDataProvider extends BaseDataProvider

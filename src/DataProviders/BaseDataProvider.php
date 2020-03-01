@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 abstract class BaseDataProvider
 {
     /**
-     * Copy of query
+     * Copy of query.
      *
      * @var Builder $query
      */
@@ -32,7 +32,9 @@ abstract class BaseDataProvider
     /**
      * @param Request $request
      */
-    public function get(Request $request) {}
+    public function get(Request $request)
+    {
+    }
 
     /**
      * Get rows count.
@@ -45,7 +47,7 @@ abstract class BaseDataProvider
     }
 
     /**
-     * Apply query sort
+     * Apply query sort.
      *
      * @param string $column
      * @param string $direction

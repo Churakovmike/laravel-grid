@@ -3,13 +3,13 @@
 namespace ChurakovMike\EasyGrid\Columns;
 
 /**
- * Class DefaultColumn
+ * Class DefaultColumn.
  * @package ChurakovMike\EasyGrid\Columns
  */
 class DefaultColumn extends BaseColumn
 {
     /**
-     * Return row value
+     * Return row value.
      *
      * @param $row
      * @return string

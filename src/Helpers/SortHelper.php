@@ -49,7 +49,7 @@ class SortHelper
     }
 
     /**
-     * Return column from request
+     * Return column from request.
      *
      * @param Request $request
      * @return mixed
@@ -61,7 +61,7 @@ class SortHelper
     }
 
     /**
-     * Return column direction from request
+     * Return column direction from request.
      *
      * @param Request $request
      * @return string

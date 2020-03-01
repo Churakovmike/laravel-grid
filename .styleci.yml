@@ -4,6 +4,7 @@ disabled:
   - unused_use
   - phpdoc_no_package
   - phpdoc_var_without_name
+  - single_class_element_per_statement
 
 finder:
   exclude:

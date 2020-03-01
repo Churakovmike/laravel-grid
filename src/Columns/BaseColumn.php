@@ -5,7 +5,7 @@ namespace ChurakovMike\EasyGrid\Columns;
 use ChurakovMike\EasyGrid\Traits\Configurable;
 
 /**
- * Class BaseColumn
+ * Class BaseColumn.
  * @package ChurakovMike\EasyGrid\Columns
  *
  * @property string $label
