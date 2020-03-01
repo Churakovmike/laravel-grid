@@ -30,7 +30,9 @@
                             </th>
                         @endforeach
                     </tr>
-                    @include('churakovmike_easygrid::filters.default')
+                    @include('churakovmike_easygrid::filters.default', [
+                        'columns' => $columns,
+                    ])
                     </thead>
                     <tbody>
                         @foreach($paginator->items() as $row)

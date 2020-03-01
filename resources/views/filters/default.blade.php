@@ -3,12 +3,7 @@
 @endphp
 <tr id="" class="">
     <td>&nbsp;</td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
-    <td><input type="text" class="form-control" name=""></td>
+    @foreach($columns as $column)
+        <td><input type="text" class="form-control" name=""></td>
+    @endforeach
 </tr>
