@@ -8,6 +8,7 @@ php:
 branches:
   only:
   - dev
+  - master
 
 script: phpunit --configuration phpunit.xml --coverage-text
 
