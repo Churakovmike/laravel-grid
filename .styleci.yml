@@ -1,10 +1,6 @@
 preset: laravel
 
-enabled:
-  - short_array_syntax
-
 disabled:
-  - phpdoc_annotation_without_dot
   - unused_use
 
 finder:
