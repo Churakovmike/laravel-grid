@@ -8,13 +8,10 @@
         convertWarningsToExceptions="true"
         processIsolation="false"
         stopOnFailure="false"
->
-    <php>
-        <env name="APP_KEY" value="base64:bBKvbk+0J46Xf3e1cj0YqnVBOj+UZj7Sx/4sn0PSkUc="/>
-    </php>
+        bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
     <filter>
