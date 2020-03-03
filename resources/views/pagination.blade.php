@@ -27,7 +27,7 @@
                 @endif
             @endforeach
             @if ($paginator->hasMorePages())
-                <li class="page-item"><a class="page-link" href="{{ url()->current() . '/?page=' .  ($paginator->currentPage() - 1) }}">&raquo;</a></li>
+                <li class="page-item"><a class="page-link" href="{{ (new \ChurakovMike\EasyGrid\Helpers\PaginationHelper($paginator))->getNextUrl() }}">&raquo;</a></li>
             @else
                 <li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
             @endif

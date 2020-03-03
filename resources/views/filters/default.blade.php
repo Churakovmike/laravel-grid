@@ -1,8 +1,10 @@
 @php
-//TODO:add filters
+//dd($columns);
 @endphp
-<tr id="" class="">
-    @foreach($columns as $column)
-        <td><input type="text" class="form-control" name=""></td>
-    @endforeach
-</tr>
+<td></td>
+<form action="" method="get" id="js-easy-grid">
+@foreach($columns as $column)
+    {!! $column->filter->render() !!}
+@endforeach
+<input type="submit" style="visibility: hidden">
+</form>
