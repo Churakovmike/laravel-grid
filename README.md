@@ -6,13 +6,13 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 
-##Requirements
+## Requirements
 + laravel 5.5+
 + Bootstrap 3/4 for styling
 
-#Getting started
+# Getting started
 
-##install
+## install
 The package is available on packagist.
 ```php
 composer require churakovmike/laravel-grid
@@ -21,7 +21,7 @@ Register service provider in config/app.php
 ```php
     ChurakovMike\EasyGrid\GridViewServiceProvider::class,       
 ```
-##Grid example
+## Grid example
 ```php
 <?php
 
@@ -42,7 +42,7 @@ class ExampleController extends Controller
 
 ```
 
-#####render grid simple example
+#### render grid simple example
 ```php
 {!! easy_grid([
     'dataProvider' => $dataProvider,
@@ -55,7 +55,7 @@ class ExampleController extends Controller
     ],
 ]) !!}
 ```
-#####render grid custom field and callbacks
+#### render grid custom field and callbacks
 ```php
 {!! easy_grid([
     'dataProvider' => $dataProvider,
