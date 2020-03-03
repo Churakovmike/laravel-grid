@@ -20,12 +20,26 @@ class EloquentDataProvider extends BaseDataProvider
      */
     public function get(Request $request): Collection
     {
+        return $this->query->offset(($request->page - 1) * ($request->perPage))
+            ->limit($request->perPage)
+            ->get() ?? new Collection();
+    }
+
+    /**
+     * Prepare query parameters.
+     *
+     * @param Request $request
+     */
+    public function prepareQuery(Request $request)
+    {
         if ($request->get('sort', null)) {
             $this->query->orderBy(SortHelper::getSortColumn($request), SortHelper::getDirection($request));
         }
 
-        return $this->query->offset(($request->page - 1) * ($request->perPage))
-            ->limit($request->perPage)
-            ->get() ?? new Collection();
+        if (!is_null($request->filters)) {
+            foreach ($request->filters as $column => $value) {
+                $this->query->where($column, 'like', '%' . $value . '%');
+            }
+        }
     }
 }

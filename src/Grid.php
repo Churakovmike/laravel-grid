@@ -83,6 +83,7 @@ class Grid
     public function render(): string
     {
         $this->buildColumns();
+        $this->dataProvider->prepareQuery($this->request);
         $this->page = $this->request->get('page', self::DEFAULT_PAGE_NUMBER);
 
         if (is_null($this->request->get('perPage'))) {

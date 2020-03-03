@@ -16,7 +16,6 @@ class GridViewServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'churakovmike_easygrid');
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'churakovmike_easygrid');
-
         require_once __DIR__ . '/functions.php';
         Blade::directive('easy_grid', function ($config) {
             return "<?php echo grid($config) ?>";

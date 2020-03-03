@@ -1,6 +1,7 @@
 @php
 /** @var \ChurakovMike\EasyGrid\Columns\DefaultColumn[] $columns */
 /** @var \Illuminate\Pagination\LengthAwarePaginator $paginator */
+//dd($columns);
 @endphp
 <div class="card">
     <div class="card-body">

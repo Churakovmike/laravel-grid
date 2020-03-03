@@ -54,7 +54,7 @@ class SortHelper
      * @param Request $request
      * @return mixed
      */
-    public static function getSortColumn(Request $request)
+    public static function getSortColumn(Request $request): string
     {
         $column = $request->get('sort');
 
@@ -67,7 +67,7 @@ class SortHelper
      * @param Request $request
      * @return string
      */
-    public static function getDirection(Request $request)
+    public static function getDirection(Request $request): string
     {
         $column = $request->get('sort');
         $position = mb_strpos($column, '-');

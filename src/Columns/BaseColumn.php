@@ -2,6 +2,8 @@
 
 namespace ChurakovMike\EasyGrid\Columns;
 
+use ChurakovMike\EasyGrid\Filters\BaseFilter;
+use ChurakovMike\EasyGrid\Filters\TextFilter;
 use ChurakovMike\EasyGrid\Traits\Configurable;
 
 /**
@@ -11,6 +13,7 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
  * @property string $label
  * @property string $attribute
  * @property string|\Closure|mixed $value
+ * @property BaseFilter $filter
  */
 abstract class BaseColumn
 {
@@ -32,12 +35,19 @@ abstract class BaseColumn
     public $value;
 
     /**
+     * @var string $filter
+     */
+    public $filter;
+
+    /**
      * BaseColumn constructor.
      * @param array $config
      */
     public function __construct(array $config)
     {
         $this->loadConfig($config);
+
+        $this->buildFilter();
     }
 
     /**
@@ -66,5 +76,19 @@ abstract class BaseColumn
     public function getAttribute(): string
     {
         return $this->attribute;
+    }
+
+    /**
+     * Build filter for grid.
+     *
+     * @return void
+     */
+    protected function buildFilter()
+    {
+        if (is_null($this->filter)) {
+            $this->filter = new TextFilter([
+                'name' => $this->getAttribute(),
+            ]);
+        }
     }
 }
