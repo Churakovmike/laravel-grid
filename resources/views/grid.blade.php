@@ -9,13 +9,24 @@
                 <div class="pull-right">
                     <div class="summary">
                         @if ($paginator->onFirstPage())
-                            Показаны <b>1-{{ $paginator->perPage() }}</b>
+                            {!! trans('churakovmike_easygrid::grid.page-info', [
+                                'start' => '<b>1</b>',
+                                'end' => '<b>' . $paginator->perPage() . '</b>',
+                                'total' => '<b>' . $paginator->total() . '</b>',
+                            ]) !!}
                         @elseif ($paginator->currentPage() == $paginator->lastPage())
-                            Показаны <b>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + 1  }}-{{ $paginator->total() }}</b>
+                            {!! trans('churakovmike_easygrid::grid.page-info', [
+                                'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                                'end' => '<b>' . $paginator->total() . '</b>',
+                                'total' => '<b>' . $paginator->total() . '</b>',
+                            ]) !!}
                         @else
-                            Показаны <b>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + 1  }}-{{ ($paginator->currentPage()) * $paginator->perPage() }}</b>
+                            {!! trans('churakovmike_easygrid::grid.page-info', [
+                                'start' => '<b>' . (($paginator->currentPage() - 1) * $paginator->perPage() + 1) . '</b>',
+                                'end' => '<b>' . (($paginator->currentPage()) * $paginator->perPage()) . '</b>',
+                                'total' => '<b>' . $paginator->total() . '</b>',
+                            ]) !!}
                         @endif
-                        из <b>{{ $paginator->total() }}</b> записи.
                     </div>
                 </div>
                 <h3 class="panel-title"></h3>
@@ -24,6 +35,7 @@
                 <table class="table table-bordered table-striped table-hover"><colgroup><col>
                     <thead>
                     <tr>
+                        <th>#</th>
                         @foreach($columns as $column)
                             <th>
                                 <a href="{{ \ChurakovMike\EasyGrid\Helpers\SortHelper::getSortableLink(request(), $column) }}">{{ $column->getLabel() }}</a>
@@ -35,8 +47,9 @@
                     ])
                     </thead>
                     <tbody>
-                        @foreach($paginator->items() as $row)
+                        @foreach($paginator->items() as $key => $row)
                             <tr>
+                                <td>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                                 @foreach($columns as $column)
                                     <td>{{ $column->getValue($row) }}</td>
                                 @endforeach
