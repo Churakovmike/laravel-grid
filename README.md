@@ -19,7 +19,7 @@ composer require churakovmike/laravel-grid
 ```
 Register service provider in config/app.php
 ```php
-    ChurakovMike\EasyGrid\GridViewServiceProvider::class,       
+ChurakovMike\EasyGrid\GridViewServiceProvider::class,       
 ```
 ## Grid example
 ```php
