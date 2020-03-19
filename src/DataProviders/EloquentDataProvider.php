@@ -20,6 +20,7 @@ class EloquentDataProvider extends BaseDataProvider
      */
     public function get(Request $request): Collection
     {
+        //dd($this->query->toSql());
         return $this->query->offset(($request->page - 1) * ($request->perPage))
             ->limit($request->perPage)
             ->get() ?? new Collection();
@@ -38,6 +39,10 @@ class EloquentDataProvider extends BaseDataProvider
 
         if (!is_null($request->filters)) {
             foreach ($request->filters as $column => $value) {
+                if (is_null($value)) {
+                    continue;
+                }
+
                 $this->query->where($column, 'like', '%' . $value . '%');
             }
         }

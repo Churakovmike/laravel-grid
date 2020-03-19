@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/churakovmike/laravel-grid/license)](https://packagist.org/packages/churakovmike/laravel-grid)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
-
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Churakovmike/laravel-grid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Churakovmike/laravel-grid/?branch=master)
 ## Requirements
 + laravel 5.5+
 + Bootstrap 3/4 for styling

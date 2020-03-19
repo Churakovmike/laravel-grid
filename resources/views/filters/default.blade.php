@@ -6,5 +6,5 @@
 @foreach($columns as $column)
     {!! $column->filter->render() !!}
 @endforeach
-<input type="submit" style="visibility: hidden">
+<input type="submit" style="display: none">
 </form>

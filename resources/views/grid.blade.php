@@ -33,7 +33,7 @@
                 <h3 class="panel-title"></h3>
             </div>
             <div id="w8-container" class="table-responsive">
-                <table class="table table-bordered table-striped table-hover"><colgroup><col>
+                <table class="table table-bordered table-striped table-hover">
                     <thead>
                     <tr>
                         <th>#</th>

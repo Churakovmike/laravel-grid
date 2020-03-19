@@ -2,6 +2,8 @@
 
 namespace ChurakovMike\EasyGrid;
 
+use ChurakovMike\EasyGrid\Columns\ActionColumn;
+use ChurakovMike\EasyGrid\Columns\BaseColumn;
 use ChurakovMike\EasyGrid\Columns\CallbackColumn;
 use ChurakovMike\EasyGrid\Columns\DefaultColumn;
 use ChurakovMike\EasyGrid\DataProviders\BaseDataProvider;
@@ -105,7 +107,7 @@ class Grid
     }
 
     /**
-     * TODO: сделать возможность передачи класса колонки.
+     * @throws \Exception
      */
     protected function buildColumns()
     {
@@ -121,6 +123,15 @@ class Grid
             }
 
             if (is_array($column)) {
+                if (isset($column['class']) && class_exists($column['class']) ) {
+                    $column = new $column['class']($column);
+                    if (!is_a($column, ActionColumn::class)) {
+                        throw new \Exception('Column class must inherit from BaseColumn class');
+                    }
+
+                    continue;
+                }
+
                 if (isset($column['value']) && $column['value'] instanceof Closure) {
                     $column = new CallbackColumn($column);
                     continue;

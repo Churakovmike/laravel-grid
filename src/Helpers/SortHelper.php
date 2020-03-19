@@ -3,6 +3,7 @@
 namespace ChurakovMike\EasyGrid\Helpers;
 
 use ChurakovMike\EasyGrid\Columns\BaseColumn;
+use ChurakovMike\EasyGrid\Columns\ActionColumn;
 use Illuminate\Http\Request;
 
 /**
@@ -18,11 +19,15 @@ class SortHelper
      * Build sort link for model.
      *
      * @param Request $request
-     * @param BaseColumn $column
+     * @param BaseColumn|ActionColumn $column
      * @return string
      */
-    public static function getSortableLink(Request $request, BaseColumn $column): string
+    public static function getSortableLink(Request $request, $column): string
     {
+        if ($column instanceof ActionColumn) {
+            return '';
+        }
+
         $sortQuery = $request->get('sort', null);
 
         if (is_null($sortQuery)) {
