@@ -52,7 +52,7 @@
                             <tr>
                                 <td>{{ ($paginator->currentPage() - 1) * $paginator->perPage() + $key + 1 }}</td>
                                 @foreach($columns as $column)
-                                    <td>{{ $column->getValue($row) }}</td>
+                                    <td>{!! $column->render($row) !!}</td>
                                 @endforeach
                             </tr>
                         @endforeach

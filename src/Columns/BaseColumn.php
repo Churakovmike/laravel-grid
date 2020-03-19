@@ -4,6 +4,10 @@ namespace ChurakovMike\EasyGrid\Columns;
 
 use ChurakovMike\EasyGrid\Filters\BaseFilter;
 use ChurakovMike\EasyGrid\Filters\TextFilter;
+use ChurakovMike\EasyGrid\Formatters\BaseFormatter;
+use ChurakovMike\EasyGrid\Formatters\HtmlFormatter;
+use ChurakovMike\EasyGrid\Formatters\TextFormatter;
+use ChurakovMike\EasyGrid\Interfaces\Formattable;
 use ChurakovMike\EasyGrid\Traits\Configurable;
 
 /**
@@ -14,6 +18,7 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
  * @property string $attribute
  * @property string|\Closure|mixed $value
  * @property BaseFilter $filter
+ * @property string|BaseFormatter $format
  */
 abstract class BaseColumn
 {
@@ -40,14 +45,19 @@ abstract class BaseColumn
     public $filter;
 
     /**
+     * @var string|Formattable $format
+     */
+    public $format;
+
+    /**
      * BaseColumn constructor.
      * @param array $config
      */
     public function __construct(array $config)
     {
         $this->loadConfig($config);
-
         $this->buildFilter();
+        $this->buildFormatter();
     }
 
     /**
@@ -56,6 +66,28 @@ abstract class BaseColumn
      */
     public function getValue($row): string
     {
+    }
+
+    /**
+     * Render row attribute value.
+     *
+     * @param $row
+     * @return mixed
+     */
+    public function render($row)
+    {
+        return $this->formatTo($this->getValue($row));
+    }
+
+    /**
+     * Format value with formatter.
+     *
+     * @param $value
+     * @return mixed
+     */
+    public function formatTo($value)
+    {
+        return $this->format->format($value);
     }
 
     /**
@@ -90,5 +122,42 @@ abstract class BaseColumn
                 'name' => $this->getAttribute(),
             ]);
         }
+    }
+
+    /**
+     * Build row data formatter.
+     *
+     * @return void
+     */
+    protected function buildFormatter()
+    {
+        if (is_null($this->format)) {
+            $this->format = new TextFormatter();
+            return;
+        }
+
+        if (is_object($this->format) && ($this->format instanceof Formattable)) {
+            return;
+        } else {
+
+        }
+
+        if (is_string($this->format)) {
+            switch ($this->format) {
+                case 'text':
+                    $this->format = new TextFormatter();
+                    break;
+                case 'html':
+                    $this->format = new HtmlFormatter();
+                    break;
+                default:
+                    $this->format = new TextFormatter();
+                    break;
+            }
+
+            return;
+        }
+
+        return;
     }
 }
