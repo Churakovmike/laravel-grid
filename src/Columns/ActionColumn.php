@@ -8,6 +8,7 @@ use ChurakovMike\EasyGrid\Columns\Actions\Show;
 use ChurakovMike\EasyGrid\Columns\Actions\Update;
 use ChurakovMike\EasyGrid\Filters\StubFilter;
 use ChurakovMike\EasyGrid\Traits\Configurable;
+use Closure;
 
 /**
  * Class ActionColumn.
@@ -76,10 +77,27 @@ class ActionColumn extends BaseColumn
     public function buildButtons($config)
     {
         foreach ($this->buttons as $key => &$button) {
+
+            if ($button instanceof Closure) {
+                $class = self::BASE_ACTIONS[$key];
+                $button = new $class([
+                    'url' => $button,
+                ]);
+                continue;
+            }
+
             if(is_string($button)) {
                 if (in_array($button, self::ACTIONS)) {
                     $class = self::BASE_ACTIONS[$button];
                     $button = new $class;
+                    continue;
+                }
+
+                if (in_array($key, self::ACTIONS)) {
+                    $class = self::BASE_ACTIONS[$key];
+                    $button = new $class([
+                        'url' => $button,
+                    ]);
                     continue;
                 }
             }
@@ -100,13 +118,11 @@ class ActionColumn extends BaseColumn
      */
     public function render($row)
     {
-        if (empty($this->value)) {
-            foreach ($this->buttons as $button) {
-                $this->value .= $button->render();
-            }
+        $value = '';
+        foreach ($this->buttons as $button) {
+            $value .= $button->render($row);
         }
 
-        return '<div class="row">' . $this->value . '</div>';
-        return $this->value;
+        return '<div class="row">' . $value . '</div>';
     }
 }

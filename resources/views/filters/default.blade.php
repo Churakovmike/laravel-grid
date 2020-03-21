@@ -1,5 +1,4 @@
 @php
-//dd($columns);
 @endphp
 <td></td>
 <form action="" method="get" id="js-easy-grid">
