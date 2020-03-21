@@ -55,9 +55,9 @@ abstract class BaseFilter
     /**
      * Return filter name.
      *
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }

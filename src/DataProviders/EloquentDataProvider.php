@@ -20,7 +20,6 @@ class EloquentDataProvider extends BaseDataProvider
      */
     public function get(Request $request): Collection
     {
-        //dd($this->query->toSql());
         return $this->query->offset(($request->page - 1) * ($request->perPage))
             ->limit($request->perPage)
             ->get() ?? new Collection();

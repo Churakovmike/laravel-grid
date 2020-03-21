@@ -36,9 +36,9 @@
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                     <tr>
-                        <th>#</th>
+                        <th width="5%">#</th>
                         @foreach($columns as $column)
-                            <th>
+                            <th {!! $column->renderHtmlOptions() !!}>
                                 <a href="{{ \ChurakovMike\EasyGrid\Helpers\SortHelper::getSortableLink(request(), $column) }}">{{ $column->getLabel() }}</a>
                             </th>
                         @endforeach

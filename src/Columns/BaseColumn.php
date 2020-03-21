@@ -50,6 +50,11 @@ abstract class BaseColumn
     public $format;
 
     /**
+     * @var string $width
+     */
+    public $width;
+
+    /**
      * BaseColumn constructor.
      * @param array $config
      */
@@ -103,9 +108,9 @@ abstract class BaseColumn
     /**
      * Get attribute.
      *
-     * @return string
+     * @return string|null
      */
-    public function getAttribute(): string
+    public function getAttribute()
     {
         return $this->attribute;
     }
@@ -139,7 +144,7 @@ abstract class BaseColumn
         if (is_object($this->format) && ($this->format instanceof Formattable)) {
             return;
         } else {
-
+            //todo:add another filters.
         }
 
         if (is_string($this->format)) {
@@ -159,5 +164,13 @@ abstract class BaseColumn
         }
 
         return;
+    }
+
+    /**
+     * @return string
+     */
+    public function renderHtmlOptions(): string 
+    {
+        return "width='{$this->width}'%";
     }
 }

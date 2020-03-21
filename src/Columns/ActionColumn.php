@@ -17,7 +17,7 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
  * @property BaseButton[] $buttons
  * @property string $value
  */
-class ActionColumn
+class ActionColumn extends BaseColumn
 {
     use Configurable;
 
@@ -85,15 +85,16 @@ class ActionColumn
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return '';
     }
 
     /**
+     * @param $row
      * @return string
      */
-    public function render()
+    public function render($row)
     {
         if (empty($this->value)) {
             foreach ($this->buttons as $button) {
