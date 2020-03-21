@@ -30,9 +30,11 @@
                         @endif
                     </div>
                 </div>
-                <h3 class="panel-title"></h3>
+                @if($title)
+                    <h3 class="panel-title">{!! $title !!}</h3>
+                @endif
             </div>
-            <div id="w8-container" class="table-responsive">
+            <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                     <tr>

@@ -61,6 +61,10 @@ class ActionColumn extends BaseColumn
     {
         $this->loadConfig($config);
         $this->buildButtons($config);
+        if (is_null($this->width)) {
+            $this->width = '10%';
+        }
+
         $this->filter = new StubFilter(['name' => '']);
     }
 

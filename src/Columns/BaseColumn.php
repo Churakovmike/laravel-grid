@@ -19,6 +19,7 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
  * @property string|\Closure|mixed $value
  * @property BaseFilter $filter
  * @property string|BaseFormatter $format
+ * @property string $width
  */
 abstract class BaseColumn
 {
@@ -171,6 +172,10 @@ abstract class BaseColumn
      */
     public function renderHtmlOptions(): string 
     {
-        return "width='{$this->width}'%";
+        if (!is_null($this->width)) {
+            return "width='{$this->width}'%";
+        }
+
+        return '';
     }
 }

@@ -24,6 +24,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
  * @property LengthAwarePaginator $paginator
  * @property int $rowPerPage
  * @property int $page
+ * @property string $title
  */
 class Grid
 {
@@ -69,6 +70,11 @@ class Grid
     public $page;
 
     /**
+     * @var string
+     */
+    public $title;
+
+    /**
      * Grid constructor.
      * @param array $config
      */
@@ -103,6 +109,7 @@ class Grid
         return view('churakovmike_easygrid::grid', [
             'columns' => $this->columns,
             'paginator' => $this->paginator,
+            'title' => $this->title,
         ])->render();
     }
 
