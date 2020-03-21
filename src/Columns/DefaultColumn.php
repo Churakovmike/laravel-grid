@@ -16,6 +16,6 @@ class DefaultColumn extends BaseColumn
      */
     public function getValue($row): string
     {
-        return $row->{$this->attribute};
+        return $row->{$this->attribute} ?? '';
     }
 }
