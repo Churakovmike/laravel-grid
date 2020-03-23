@@ -77,7 +77,6 @@ class ActionColumn extends BaseColumn
     public function buildButtons($config)
     {
         foreach ($this->buttons as $key => &$button) {
-
             if ($button instanceof Closure) {
                 $class = self::BASE_ACTIONS[$key];
                 $button = new $class([

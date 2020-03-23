@@ -169,7 +169,7 @@ abstract class BaseColumn
     /**
      * @return string
      */
-    public function renderHtmlOptions(): string 
+    public function renderHtmlOptions(): string
     {
         if (!is_null($this->width)) {
             return "width='{$this->width}'%";
