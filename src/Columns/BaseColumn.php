@@ -139,6 +139,7 @@ abstract class BaseColumn
     {
         if (is_null($this->format)) {
             $this->format = new TextFormatter();
+
             return;
         }
 
@@ -163,8 +164,6 @@ abstract class BaseColumn
 
             return;
         }
-
-        return;
     }
 
     /**
