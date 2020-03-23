@@ -42,7 +42,7 @@ class ExampleController extends Controller
 
 ```
 
-#### render grid simple example
+#### Render grid simple example
 ```php
 {!! easy_grid([
     'dataProvider' => $dataProvider,
@@ -55,7 +55,7 @@ class ExampleController extends Controller
     ],
 ]) !!}
 ```
-#### render grid custom field and callbacks
+#### Render grid custom field and callbacks
 ```php
 {!! easy_grid([
     'dataProvider' => $dataProvider,
@@ -74,6 +74,115 @@ class ExampleController extends Controller
             'value' => function($data) {
                 return $data->relatedModel->attribute;
             }
+        ],
+        'email',
+        'status',
+        'created_at',
+    ],
+]) !!}
+```
+#### If you need column without model attribute, you can use callback
+```php
+{!! easy_grid([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        [
+            'label' => 'There are no model attribute',
+            'value' => function($data) {
+                return 'example string';
+            }
+        ],
+        'email',
+        'status',
+        'created_at',
+    ],
+]) !!}
+``` 
+#### The grid support column fomatter, default is a text filter and it cuts out all html code (strip_tags()), you can change this formatter to html formatter
+```php
+{!! easy_grid([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        [
+            'label' => 'Avatar',
+            'attribute' => 'avatar',
+            'format' => 'html,
+        ],
+    ],
+]) !!}
+```
+#### There are default action buttons in the grid,
+```php
+{!! easy_grid([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'id',
+        'name',
+        'email',
+        'status',
+        'created_at',
+        [
+            'class' => \ChurakovMike\EasyGrid\Columns\ActionColumn::class,
+            'buttons' => [
+                'show',
+                'update',
+                'destroy',
+            ],
+        ],
+    ],
+]) !!}
+```
+
+Buttons urls
+
+Button | Url
+--- | --- 
+Show | /{id}
+Update | /{id}/edit
+Destroy | /{id}/delete
+
+If you need another urls, just do like this
+```php
+{!! easy_grid([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'id',
+        'name',
+        'email',
+        'status',
+        'created_at',
+        [
+            'class' => \ChurakovMike\EasyGrid\Columns\ActionColumn::class,
+            'buttons' => [
+                'show' => function($data) {
+                    return route('your-route-name', [
+                        'id' => $data->id,
+                    ])
+                },
+                'update' => function($data) {
+                    return '/edit/' . $data->id,
+                },
+                'destroy',
+            ],
+        ],
+    ],
+]) !!}
+```
+#### To change the width of the cell you can pass the value of the width
+```php
+{!! easy_grid([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'id',
+        [
+            'label' => 'Users name',
+            'attribute' => 'name',
+            'width' => '15%',
+        ],
+        [
+            'label' => 'Custom label',
+            'attribute' => 'id',
+            'width' => '100px',
         ],
         'email',
         'status',
