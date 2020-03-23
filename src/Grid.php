@@ -130,7 +130,7 @@ class Grid
             }
 
             if (is_array($column)) {
-                if (isset($column['class']) && class_exists($column['class']) ) {
+                if (isset($column['class']) && class_exists($column['class'])) {
                     $column = new $column['class']($column);
                     if (!is_a($column, ActionColumn::class)) {
                         throw new \Exception('Column class must inherit from BaseColumn class');

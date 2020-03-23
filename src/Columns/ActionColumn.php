@@ -37,7 +37,7 @@ class ActionColumn extends BaseColumn
             self::ACTION_SHOW => Show::class,
             self::ACTION_UPDATE => Update::class,
             self::ACTION_DESTROY => Destroy::class,
-    ];
+        ];
 
     /**
      * @var StubFilter $filter
@@ -86,7 +86,7 @@ class ActionColumn extends BaseColumn
                 continue;
             }
 
-            if(is_string($button)) {
+            if (is_string($button)) {
                 if (in_array($button, self::ACTIONS)) {
                     $class = self::BASE_ACTIONS[$button];
                     $button = new $class;

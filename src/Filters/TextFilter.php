@@ -3,7 +3,7 @@
 namespace ChurakovMike\EasyGrid\Filters;
 
 /**
- * Class InputFilter
+ * Class InputFilter.
  * @package ChurakovMike\EasyGrid\Filters
  */
 class TextFilter extends BaseFilter

@@ -5,7 +5,7 @@ namespace ChurakovMike\EasyGrid\Helpers;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
- * Class PaginationHelper
+ * Class PaginationHelper.
  * @package ChurakovMike\EasyGrid\Helpers
  *
  * @property LengthAwarePaginator $paginator

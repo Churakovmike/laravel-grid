@@ -6,6 +6,7 @@ disabled:
   - phpdoc_var_without_name
   - single_class_element_per_statement
   - concat_without_spaces
+  - logical_not_operators_with_spaces
 
 finder:
   exclude:

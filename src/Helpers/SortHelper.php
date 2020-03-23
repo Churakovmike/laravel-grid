@@ -2,8 +2,8 @@
 
 namespace ChurakovMike\EasyGrid\Helpers;
 
-use ChurakovMike\EasyGrid\Columns\BaseColumn;
 use ChurakovMike\EasyGrid\Columns\ActionColumn;
+use ChurakovMike\EasyGrid\Columns\BaseColumn;
 use Illuminate\Http\Request;
 
 /**

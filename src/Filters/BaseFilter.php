@@ -5,7 +5,7 @@ namespace ChurakovMike\EasyGrid\Filters;
 use ChurakovMike\EasyGrid\Traits\Configurable;
 
 /**
- * Class BaseFilter
+ * Class BaseFilter.
  * @package ChurakovMike\EasyGrid\Filters
  */
 abstract class BaseFilter
