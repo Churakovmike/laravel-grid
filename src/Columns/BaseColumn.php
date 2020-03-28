@@ -6,7 +6,9 @@ use ChurakovMike\EasyGrid\Filters\BaseFilter;
 use ChurakovMike\EasyGrid\Filters\TextFilter;
 use ChurakovMike\EasyGrid\Formatters\BaseFormatter;
 use ChurakovMike\EasyGrid\Formatters\HtmlFormatter;
+use ChurakovMike\EasyGrid\Formatters\ImageFormatter;
 use ChurakovMike\EasyGrid\Formatters\TextFormatter;
+use ChurakovMike\EasyGrid\Formatters\UrlFormatter;
 use ChurakovMike\EasyGrid\Interfaces\Formattable;
 use ChurakovMike\EasyGrid\Traits\Configurable;
 
@@ -156,6 +158,12 @@ abstract class BaseColumn
                     break;
                 case 'html':
                     $this->format = new HtmlFormatter();
+                    break;
+                case 'image':
+                    $this->format = new ImageFormatter();
+                    break;
+                case 'url':
+                    $this->format = new UrlFormatter();
                     break;
                 default:
                     $this->format = new TextFormatter();
