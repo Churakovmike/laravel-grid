@@ -7,6 +7,9 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
 /**
  * Class BaseFilter.
  * @package ChurakovMike\EasyGrid\Filters
+ *
+ * @property string $name
+ * @property string $value
  */
 abstract class BaseFilter
 {

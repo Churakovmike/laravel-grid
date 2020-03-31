@@ -14,7 +14,7 @@ class CallbackColumn extends BaseColumn
      * @param $row
      * @return string
      */
-    public function getValue($row): string
+    public function getValue($row)
     {
         return call_user_func($this->value, $row) ?? '';
     }

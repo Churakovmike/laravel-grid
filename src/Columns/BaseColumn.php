@@ -3,6 +3,7 @@
 namespace ChurakovMike\EasyGrid\Columns;
 
 use ChurakovMike\EasyGrid\Filters\BaseFilter;
+use ChurakovMike\EasyGrid\Filters\StubFilter;
 use ChurakovMike\EasyGrid\Filters\TextFilter;
 use ChurakovMike\EasyGrid\Formatters\BaseFormatter;
 use ChurakovMike\EasyGrid\Formatters\HtmlFormatter;
@@ -19,7 +20,7 @@ use ChurakovMike\EasyGrid\Traits\Configurable;
  * @property string $label
  * @property string $attribute
  * @property string|\Closure|mixed $value
- * @property BaseFilter $filter
+ * @property BaseFilter|mixed $filter
  * @property string|BaseFormatter $format
  * @property string $width
  */
@@ -72,7 +73,7 @@ abstract class BaseColumn
      * @param $row
      * @return string
      */
-    public function getValue($row): string
+    public function getValue($row)
     {
     }
 
@@ -125,8 +126,20 @@ abstract class BaseColumn
      */
     protected function buildFilter()
     {
+        if ($this->filter === false) {
+            $this->filter = new StubFilter([]);
+            return;
+        }
+
         if (is_null($this->filter)) {
             $this->filter = new TextFilter([
+                'name' => $this->getAttribute(),
+            ]);
+            return;
+        }
+
+        if (is_string($this->filter)) {
+            $this->filter = new $this->filter([
                 'name' => $this->getAttribute(),
             ]);
         }

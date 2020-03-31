@@ -1,6 +1,7 @@
 @php
 /** @var \ChurakovMike\EasyGrid\Columns\DefaultColumn[] $columns */
 /** @var \Illuminate\Pagination\LengthAwarePaginator $paginator */
+/** @var boolean $filters */
 @endphp
 <div class="card">
     <div class="card-body">
@@ -44,9 +45,11 @@
                             </th>
                         @endforeach
                     </tr>
-                    @include('churakovmike_easygrid::filters.default', [
-                        'columns' => $columns,
-                    ])
+                    @if ($filters)
+                        @include('churakovmike_easygrid::filters.default', [
+                            'columns' => $columns,
+                        ])
+                    @endif
                     </thead>
                     <tbody>
                         @foreach($paginator->items() as $key => $row)

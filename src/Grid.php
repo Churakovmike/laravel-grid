@@ -20,6 +20,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
  * @property array $config
  * @property BaseDataProvider @dataProvider
  * @property array|mixed $columns
+ * @property boolean $filters
  * @property Request $request
  * @property LengthAwarePaginator $paginator
  * @property int $rowPerPage
@@ -49,6 +50,11 @@ class Grid
      */
     public $columns;
 
+    /**
+     * @var boolean $filters
+     */
+    public $filters = true;
+    
     /**
      * @var array|\Illuminate\Http\Request|string
      */
@@ -108,6 +114,7 @@ class Grid
 
         return view('churakovmike_easygrid::grid', [
             'columns' => $this->columns,
+            'filters' => $this->filters,
             'paginator' => $this->paginator,
             'title' => $this->title,
         ])->render();
