@@ -8,6 +8,7 @@ use ChurakovMike\EasyGrid\Filters\TextFilter;
 use ChurakovMike\EasyGrid\Formatters\BaseFormatter;
 use ChurakovMike\EasyGrid\Formatters\HtmlFormatter;
 use ChurakovMike\EasyGrid\Formatters\ImageFormatter;
+use ChurakovMike\EasyGrid\Formatters\StubFormatter;
 use ChurakovMike\EasyGrid\Formatters\TextFormatter;
 use ChurakovMike\EasyGrid\Formatters\UrlFormatter;
 use ChurakovMike\EasyGrid\Interfaces\Formattable;
@@ -65,7 +66,7 @@ abstract class BaseColumn
     public function __construct(array $config)
     {
         $this->loadConfig($config);
-        $this->buildFilter();
+        $this->buildFilter($config);
         $this->buildFormatter();
     }
 
@@ -124,7 +125,7 @@ abstract class BaseColumn
      *
      * @return void
      */
-    protected function buildFilter()
+    protected function buildFilter($config)
     {
         if ($this->filter === false) {
             $this->filter = new StubFilter([]);
@@ -141,7 +142,9 @@ abstract class BaseColumn
         if (is_string($this->filter)) {
             $this->filter = new $this->filter([
                 'name' => $this->getAttribute(),
+                'value' => $config['filterData'],
             ]);
+            $this->format = new StubFormatter();
         }
     }
 

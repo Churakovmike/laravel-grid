@@ -21,6 +21,7 @@ class DropdownFilter extends BaseFilter
     {
         return view('churakovmike_easygrid::filters.dropdown', [
             'name' => $this->getName(),
+            'values' => $this->getValue(),
         ]);
     }
 }

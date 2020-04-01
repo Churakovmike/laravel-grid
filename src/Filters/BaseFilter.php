@@ -45,14 +45,14 @@ abstract class BaseFilter
     /**
      * @return mixed
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value ?? '';
     }
 
     public function setValue()
     {
-        $this->value = request()->input('filters.' . $this->getName());
+        $this->value = request()->input('filters.' . $this->getName(), $this->value);
     }
 
     /**
